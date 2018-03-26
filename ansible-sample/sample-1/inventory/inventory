@@ -1,0 +1,8 @@
+# 组名，比如 server 下可以有多个 IP 地址
+[server]
+172.31.16.68
+
+[server:vars]
+# http://docs.ansible.com/ansible/latest/intro_inventory.html#list-of-behavioral-inventory-parameters
+ansible_ssh_user="{{ remote_user }}"
+ansible_ssh_pass="{{ remote_pass }}"

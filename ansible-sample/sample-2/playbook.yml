@@ -1,0 +1,20 @@
+---
+- hosts: server
+
+  tasks:
+  - name: Change interface's GW
+    lineinfile:
+      dest: /etc/network/interfaces
+      state: present
+      regexp: '.*gateway.*'
+      line: '    gateway 192.168.0.1'
+
+  - name: Change interface's DNS
+    lineinfile:
+      dest: /etc/network/interfaces
+      state: present
+      regexp: '^dns-nameservers.*'
+      line: 'dns-nameservers 192.168.0.1 114.114.114.114'
+
+  - name: restart network
+    command: systemctl restart networking

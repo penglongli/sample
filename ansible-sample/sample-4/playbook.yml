@@ -1,0 +1,16 @@
+---
+- hosts: local
+  connection: local
+
+  tasks:
+    - name: Check port
+      wait_for:
+        host: "{{ item.0.ip }}"
+        port: "{{ item.1 }}"
+        state: started
+        delay: 0
+        timeout: 2
+      ignore_errors: yes
+      with_nested:
+        - "{{ hosts }}"
+        - "{{ ports }}"

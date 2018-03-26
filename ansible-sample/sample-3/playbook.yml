@@ -1,0 +1,14 @@
+---
+- hosts: server
+
+  tasks:
+    - name: PermitRootLogin
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        state: present
+        regexp: '.*PermitRootLogin.*'
+        line: 'PermitRootLogin yes'
+    - name: Push ssh_key
+      authorized_key:
+        user: root                                             # 远程主机用户
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"   # 本机公钥路径

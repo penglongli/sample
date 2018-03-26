@@ -1,0 +1,9 @@
+使用方法：
+1. 修改 `inventory` 文件中各参数的值
+2. 执行命令：
+```shell
+$ ansible-playbook -i inventory playbook.yml
+```
+
+注意：
+这个例子会修改远程机器的网关和 DNS，建议做一些修改或者换成另外的测试

@@ -1,0 +1,7 @@
+[server]
+114.67.232.12
+
+[server:vars]
+# New client's user/pass
+ansible_ssh_user=root
+ansible_ssh_pass=123456
